@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-23T12:34:37.370Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="VNibB-6Ek4if9L3-vWEG" version="20.3.6" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-09-23T12:40:24.488Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="6kIEjYwgJdJadHiQ0o0v" version="20.3.6" type="github" pages="3">
   <diagram id="yXQy9-JGwhagh9k716N5" name="Page-1">
     <mxGraphModel dx="1038" dy="521" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -54,6 +54,9 @@
         <mxCell id="lWrj7Y-2h-0Pkq3kSVNm-8" value="make a booking" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="375" y="115" width="60" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="9SjJOaiQjMldIA2O9R6Q-1" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/essential-app-2/16/burger-menu-more-panel-128.png" vertex="1" parent="1">
+          <mxGeometry x="30" y="5" width="20" height="20" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
@@ -75,7 +78,7 @@
           <mxGeometry x="410" y="160" width="380" height="60" as="geometry" />
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-5" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="1">
-          <mxGeometry x="260" y="300" width="300" height="580" as="geometry" />
+          <mxGeometry x="260" y="300" width="300" height="280" as="geometry" />
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-6" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="EadB9DmakDhENqWkRrIo-5">
           <mxGeometry width="300" height="40" as="geometry" />
@@ -218,35 +221,35 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-36" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="EadB9DmakDhENqWkRrIo-5">
-          <mxGeometry y="200" width="300" height="340" as="geometry" />
+          <mxGeometry y="200" width="300" height="40" as="geometry" />
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-37" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="EadB9DmakDhENqWkRrIo-36">
-          <mxGeometry width="60" height="340" as="geometry">
-            <mxRectangle width="60" height="340" as="alternateBounds" />
+          <mxGeometry width="60" height="40" as="geometry">
+            <mxRectangle width="60" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-38" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="EadB9DmakDhENqWkRrIo-36">
-          <mxGeometry x="60" width="60" height="340" as="geometry">
-            <mxRectangle width="60" height="340" as="alternateBounds" />
+          <mxGeometry x="60" width="60" height="40" as="geometry">
+            <mxRectangle width="60" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-39" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="EadB9DmakDhENqWkRrIo-36">
-          <mxGeometry x="120" width="60" height="340" as="geometry">
-            <mxRectangle width="60" height="340" as="alternateBounds" />
+          <mxGeometry x="120" width="60" height="40" as="geometry">
+            <mxRectangle width="60" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-40" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="EadB9DmakDhENqWkRrIo-36">
-          <mxGeometry x="180" width="60" height="340" as="geometry">
-            <mxRectangle width="60" height="340" as="alternateBounds" />
+          <mxGeometry x="180" width="60" height="40" as="geometry">
+            <mxRectangle width="60" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-41" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="EadB9DmakDhENqWkRrIo-36">
-          <mxGeometry x="240" width="60" height="340" as="geometry">
-            <mxRectangle width="60" height="340" as="alternateBounds" />
+          <mxGeometry x="240" width="60" height="40" as="geometry">
+            <mxRectangle width="60" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-42" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="EadB9DmakDhENqWkRrIo-5">
-          <mxGeometry y="540" width="300" height="40" as="geometry" />
+          <mxGeometry y="240" width="300" height="40" as="geometry" />
         </mxCell>
         <mxCell id="EadB9DmakDhENqWkRrIo-43" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" vertex="1" parent="EadB9DmakDhENqWkRrIo-42">
           <mxGeometry width="60" height="40" as="geometry">
@@ -272,6 +275,12 @@
           <mxGeometry x="240" width="60" height="40" as="geometry">
             <mxRectangle width="60" height="40" as="alternateBounds" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="K_R8qcCYFmqNyjKcOV0F-2" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/fastfood-30/64/hamburger-fast-food-fastfood-burger-food-bread-128.png" vertex="1" parent="1">
+          <mxGeometry x="20" y="15" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="K_R8qcCYFmqNyjKcOV0F-1" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/essential-app-2/16/burger-menu-more-panel-128.png" vertex="1" parent="1">
+          <mxGeometry x="17.5" y="15" width="20" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
