@@ -1,5 +1,6 @@
 package com.example.bigbowlxp.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -13,12 +14,12 @@ public class BowlingBooking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "start_date_time", nullable = true)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "start_date_time", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime start_date_time;
 
-    @Column(name = "end_date_time", nullable = true)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "end_date_time", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime end_date_time;
 
     @ManyToOne
