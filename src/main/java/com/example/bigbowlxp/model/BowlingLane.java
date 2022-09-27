@@ -18,8 +18,6 @@ public class BowlingLane {
     @OneToMany(mappedBy = "bowlingLane")
     private List<BowlingBooking> bowlingBookings;
 
-
-
     public BowlingLane(){}
 
     public BowlingLane(boolean isBooked, boolean isInOrder) {
