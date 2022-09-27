@@ -14,6 +14,7 @@ public class User {
 
     @Column(columnDefinition = "VARCHAR(25) NOT NULL")
     private String username;
+
     @Column(columnDefinition = "VARCHAR(25) NOT NULL")
     private String password;
 
