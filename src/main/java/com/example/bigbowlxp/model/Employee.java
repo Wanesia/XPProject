@@ -35,12 +35,11 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String telephone, LocalDate birthdate, User user) {
+    public Employee(String firstName, String lastName, String telephone, LocalDate birthdate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
         this.birthdate = birthdate;
-        this.user = user;
     }
 
     public Integer getId() {
