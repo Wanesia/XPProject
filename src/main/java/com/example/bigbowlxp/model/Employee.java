@@ -32,8 +32,49 @@ public class Employee {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    public Employee() {
+    }
 
+    public Employee(String firstName, String lastName, String telephone, LocalDate birthdate, User user) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephone = telephone;
+        this.birthdate = birthdate;
+        this.user = user;
+    }
 
+    public Integer getId() {
+        return id;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public String getTelephone() {
+        return telephone;
+    }
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
-
-// remeber to update before push

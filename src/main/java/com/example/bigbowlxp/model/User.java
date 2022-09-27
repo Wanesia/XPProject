@@ -19,5 +19,35 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Employee employee;
 
+    public User(String username, String password, Employee employee) {
+        this.username = username;
+        this.password = password;
+        this.employee = employee;
+    }
 
+    public User() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }
