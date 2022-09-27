@@ -1,8 +1,10 @@
 package com.example.bigbowlxp.common;
 
+import com.example.bigbowlxp.model.BowlingLane;
 import com.example.bigbowlxp.model.Customer;
 import com.example.bigbowlxp.model.Employee;
 import com.example.bigbowlxp.model.User;
+import com.example.bigbowlxp.repository.BowlingLaneRepository;
 import com.example.bigbowlxp.repository.CustomerRepository;
 import com.example.bigbowlxp.repository.EmployeeRepository;
 import com.example.bigbowlxp.repository.UserRepository;
@@ -13,10 +15,8 @@ import javax.annotation.PostConstruct;
 
 import java.time.LocalDate;
 
-import static javax.print.attribute.Size2DSyntax.MM;
-
 @Configuration
-public class InitalData {
+public class InitialData {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -26,6 +26,9 @@ public class InitalData {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    BowlingLaneRepository bowlingLaneRepository;
 
 
     @PostConstruct
@@ -38,8 +41,11 @@ public class InitalData {
         Employee employee1 = new Employee("Zaland", "Malasy", "+4566666", date);
         employeeRepository.save(employee1);
 
-        User user1 = new User("user", "pass", employee1);
+        User user1 = new User("user", "pass");
         userRepository.save(user1);
+
+        BowlingLane bowlingLane = new BowlingLane(false, true);
+        bowlingLaneRepository.save(bowlingLane);
 
     }
 }

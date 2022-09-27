@@ -16,21 +16,12 @@ public class BowlingLane {
 
     private boolean isInOrder;
 
-    @OneToMany(mappedBy = "bowlingLane")
-    private List<BowlingBooking> bowlingBookings;
-
     // Constructors
     public BowlingLane(){}
 
     public BowlingLane(boolean isBooked, boolean isInOrder) {
         this.isBooked = isBooked;
         this.isInOrder = isInOrder;
-    }
-
-    public BowlingLane(boolean isBooked, boolean isInOrder, List<BowlingBooking> bowlingBookings) {
-        this.isBooked = isBooked;
-        this.isInOrder = isInOrder;
-        this.bowlingBookings = bowlingBookings;
     }
 
     // Getters
@@ -43,9 +34,6 @@ public class BowlingLane {
     public boolean isInOrder() {
         return isInOrder;
     }
-    public List<BowlingBooking> getBowlingBookings() {
-        return bowlingBookings;
-    }
 
     // Setters
     public void setId(Long id) {
@@ -56,8 +44,5 @@ public class BowlingLane {
     }
     public void setInOrder(boolean inOrder) {
         isInOrder = inOrder;
-    }
-    public void setBowlingBookings(List<BowlingBooking> bowlingBookings) {
-        this.bowlingBookings = bowlingBookings;
     }
 }

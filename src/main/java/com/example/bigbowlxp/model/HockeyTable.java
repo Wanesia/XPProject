@@ -16,9 +16,6 @@ public class HockeyTable {
 
     private boolean isInOrder;
 
-    @OneToMany(mappedBy = "hockeyTable")
-    private List<HockeyBooking> hockeyBookings;
-
     // Constructors
     public HockeyTable() {
     }
@@ -26,12 +23,6 @@ public class HockeyTable {
     public HockeyTable(boolean isBooked, boolean isInOrder) {
         this.isBooked = isBooked;
         this.isInOrder = isInOrder;
-    }
-
-    public HockeyTable(boolean isBooked, boolean isInOrder, List<HockeyBooking> hockeyBookings) {
-        this.isBooked = isBooked;
-        this.isInOrder = isInOrder;
-        this.hockeyBookings = hockeyBookings;
     }
 
     // Getters
@@ -44,9 +35,6 @@ public class HockeyTable {
     public boolean isInOrder() {
         return isInOrder;
     }
-    public List<HockeyBooking> getHockeyBookings() {
-        return hockeyBookings;
-    }
 
     // Setters
     public void setId(Long id) {
@@ -57,9 +45,6 @@ public class HockeyTable {
     }
     public void setInOrder(boolean inOrder) {
         isInOrder = inOrder;
-    }
-    public void setHockeyBookings(List<HockeyBooking> hockeyBookings) {
-        this.hockeyBookings = hockeyBookings;
     }
 
 }

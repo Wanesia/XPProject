@@ -18,8 +18,6 @@ public class User {
     @Column(columnDefinition = "VARCHAR(25) NOT NULL")
     private String password;
 
-    @OneToOne(mappedBy = "user")
-    private Employee employee;
 
     // Constructors
     public User() {
@@ -28,12 +26,6 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-    }
-
-    public User(String username, String password, Employee employee) {
-        this.username = username;
-        this.password = password;
-        this.employee = employee;
     }
 
     // Getters
@@ -46,9 +38,6 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public Employee getEmployee() {
-        return employee;
-    }
 
     // Setters
     public void setId(Long id) {
@@ -59,9 +48,6 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
     }
 
 }

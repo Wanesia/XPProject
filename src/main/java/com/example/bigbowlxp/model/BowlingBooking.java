@@ -33,10 +33,9 @@ public class BowlingBooking {
     // Constructors
     public BowlingBooking(){}
 
-    public BowlingBooking(LocalDateTime startDateTime, LocalDateTime endDateTime, Customer customer) {
+    public BowlingBooking(LocalDateTime startDateTime, LocalDateTime endDateTime) {
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
-        this.customer = customer;
     }
 
     public BowlingBooking(LocalDateTime startDateTime, LocalDateTime endDateTime, Customer customer, BowlingLane bowlingLane) {
