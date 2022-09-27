@@ -1,25 +1,25 @@
 package com.example.bigbowlxp.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "hockey_bookings")
 public class HockeyBooking {
 
+    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "start_date_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startDateTime;
 
     @Column(name = "end_date_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endDateTime;
 
     @ManyToOne
@@ -30,7 +30,13 @@ public class HockeyBooking {
     @JoinColumn(name = "hockey_tables_id")
     private HockeyTable hockeyTable;
 
+    // Constructors
     public HockeyBooking() {
+    }
+
+    public HockeyBooking(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
     }
 
     public HockeyBooking(LocalDateTime startDateTime, LocalDateTime endDateTime, Customer customer, HockeyTable hockeyTable) {
@@ -40,7 +46,8 @@ public class HockeyBooking {
         this.hockeyTable = hockeyTable;
     }
 
-    public Integer getId() {
+    // Getters
+    public Long getId() {
         return id;
     }
     public LocalDateTime getStartDateTime() {
@@ -56,6 +63,10 @@ public class HockeyBooking {
         return hockeyTable;
     }
 
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
     public void setStartDateTime(LocalDateTime startDateTime) {
         this.startDateTime = startDateTime;
     }
@@ -68,4 +79,5 @@ public class HockeyBooking {
     public void setHockeyTable(HockeyTable hockeyTable) {
         this.hockeyTable = hockeyTable;
     }
+
 }

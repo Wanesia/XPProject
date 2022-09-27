@@ -11,9 +11,10 @@ import java.time.LocalDate;
 @Table(name = "employees")
 public class Employee {
 
+    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(columnDefinition = "VARCHAR(25) NOT NULL")
     private String firstName;
@@ -26,23 +27,33 @@ public class Employee {
 
     @Column(name = "birth_date", nullable = true)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birthdate;
+    private LocalDate birthDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    // Constructors
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String telephone, LocalDate birthdate) {
+    public Employee(String firstName, String lastName, String telephone, LocalDate birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
-        this.birthdate = birthdate;
+        this.birthDate = birthDate;
     }
 
-    public Integer getId() {
+    public Employee(String firstName, String lastName, String telephone, LocalDate birthDate, User user) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephone = telephone;
+        this.birthDate = birthDate;
+        this.user = user;
+    }
+
+    // Getters
+    public Long getId() {
         return id;
     }
     public String getFirstName() {
@@ -54,13 +65,17 @@ public class Employee {
     public String getTelephone() {
         return telephone;
     }
-    public LocalDate getBirthdate() {
-        return birthdate;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
     public User getUser() {
         return user;
     }
 
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -70,10 +85,11 @@ public class Employee {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
     public void setUser(User user) {
         this.user = user;
     }
+
 }

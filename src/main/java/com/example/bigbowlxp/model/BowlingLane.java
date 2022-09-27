@@ -7,44 +7,56 @@ import java.util.List;
 @Table(name = "bowling_lane")
 public class BowlingLane {
 
+    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private boolean isBooked;
 
-    private boolean IsInOrder;
+    private boolean isInOrder;
 
     @OneToMany(mappedBy = "bowlingLane")
     private List<BowlingBooking> bowlingBookings;
 
+    // Constructors
     public BowlingLane(){}
 
     public BowlingLane(boolean isBooked, boolean isInOrder) {
         this.isBooked = isBooked;
-        IsInOrder = isInOrder;
+        this.isInOrder = isInOrder;
     }
 
+    public BowlingLane(boolean isBooked, boolean isInOrder, List<BowlingBooking> bowlingBookings) {
+        this.isBooked = isBooked;
+        this.isInOrder = isInOrder;
+        this.bowlingBookings = bowlingBookings;
+    }
+
+    // Getters
+    public Long getId() {
+        return id;
+    }
     public boolean isBooked() {
         return isBooked;
     }
-
-    public void setBooked(boolean booked) {
-        isBooked = booked;
-    }
-
     public boolean isInOrder() {
-        return IsInOrder;
+        return isInOrder;
     }
-
-    public void setInOrder(boolean inOrder) {
-        IsInOrder = inOrder;
-    }
-
     public List<BowlingBooking> getBowlingBookings() {
         return bowlingBookings;
     }
 
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setBooked(boolean booked) {
+        isBooked = booked;
+    }
+    public void setInOrder(boolean inOrder) {
+        isInOrder = inOrder;
+    }
     public void setBowlingBookings(List<BowlingBooking> bowlingBookings) {
         this.bowlingBookings = bowlingBookings;
     }

@@ -34,7 +34,7 @@ public class InitalData {
         Customer customer1 = new Customer("Laura", "Anne", "+455599959");
         customerRepository.save(customer1);
 
-        LocalDate date = LocalDate.of(1975, 06, 04);
+        LocalDate date = LocalDate.of(1975, 6, 4);
         Employee employee1 = new Employee("Zaland", "Malasy", "+4566666", date);
         employeeRepository.save(employee1);
 

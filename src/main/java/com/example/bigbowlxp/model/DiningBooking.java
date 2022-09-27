@@ -1,6 +1,6 @@
 package com.example.bigbowlxp.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,17 +8,19 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "dining_bookings")
 public class DiningBooking {
+
+    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "start_date_time", nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime start_date_time;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime startDateTime;
 
     @Column(name = "end_date_time", nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime end_date_time;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime endDateTime;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -28,61 +30,55 @@ public class DiningBooking {
     @JoinColumn(name = "dining_table_id")
     private DiningTable diningTable;
 
+    // Constructors
     public DiningBooking() {
     }
 
-    public DiningBooking(LocalDateTime start_date_time, LocalDateTime end_date_time, Customer customer, DiningTable diningTable) {
-        this.start_date_time = start_date_time;
-        this.end_date_time = end_date_time;
+    public DiningBooking(LocalDateTime startDateTime, LocalDateTime end_date_time, Customer customer) {
+        this.startDateTime = startDateTime;
+        this.endDateTime = end_date_time;
+        this.customer = customer;
+    }
+
+    public DiningBooking(LocalDateTime startDateTime, LocalDateTime end_date_time, Customer customer, DiningTable diningTable) {
+        this.startDateTime = startDateTime;
+        this.endDateTime = end_date_time;
         this.customer = customer;
         this.diningTable = diningTable;
     }
 
-    public DiningBooking(Long id, LocalDateTime start_date_time, LocalDateTime end_date_time, Customer customer, DiningTable diningTable) {
-        this.id = id;
-        this.start_date_time = start_date_time;
-        this.end_date_time = end_date_time;
-        this.customer = customer;
-        this.diningTable = diningTable;
-    }
-
+    // Getters
     public Long getId() {
         return id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
+    public LocalDateTime getStartDateTime() {
+        return startDateTime;
     }
-
-    public LocalDateTime getStart_date_time() {
-        return start_date_time;
+    public LocalDateTime getEndDateTime() {
+        return endDateTime;
     }
-
-    public void setStart_date_time(LocalDateTime start_date_time) {
-        this.start_date_time = start_date_time;
-    }
-
-    public LocalDateTime getEnd_date_time() {
-        return end_date_time;
-    }
-
-    public void setEnd_date_time(LocalDateTime end_date_time) {
-        this.end_date_time = end_date_time;
-    }
-
     public Customer getCustomer() {
         return customer;
     }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public DiningTable getDiningTable() {
         return diningTable;
     }
 
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setStartDateTime(LocalDateTime start_date_time) {
+        this.startDateTime = start_date_time;
+    }
+    public void setEndDateTime(LocalDateTime end_date_time) {
+        this.endDateTime = end_date_time;
+    }
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
     public void setDiningTable(DiningTable diningTable) {
         this.diningTable = diningTable;
     }
+
 }

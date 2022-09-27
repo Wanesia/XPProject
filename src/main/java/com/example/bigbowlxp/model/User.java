@@ -7,9 +7,10 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(columnDefinition = "VARCHAR(25) NOT NULL")
     private String username;
@@ -19,16 +20,23 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Employee employee;
 
+    // Constructors
+    public User() {
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public User(String username, String password, Employee employee) {
         this.username = username;
         this.password = password;
         this.employee = employee;
     }
 
-    public User() {
-    }
-
-    public Integer getId() {
+    // Getters
+    public Long getId() {
         return id;
     }
     public String getUsername() {
@@ -41,6 +49,10 @@ public class User {
         return employee;
     }
 
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
     public void setUsername(String username) {
         this.username = username;
     }
@@ -50,4 +62,5 @@ public class User {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
+
 }

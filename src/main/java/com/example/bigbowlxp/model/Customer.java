@@ -7,9 +7,10 @@ import java.util.List;
 @Table(name = "customers")
 public class Customer {
 
+    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false, unique = false, length = 25)
     private String firstName;
@@ -23,6 +24,8 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<BowlingBooking> bowlingBookings;
 
+    // Constructors
+    public Customer(){}
 
     public Customer(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
@@ -30,45 +33,45 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Customer(){}
+    public Customer(String firstName, String lastName, String phoneNumber, List<BowlingBooking> bowlingBookings) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.bowlingBookings = bowlingBookings;
+    }
 
-    public Integer getId() {
+    // Getters
+    public Long getId() {
         return id;
     }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getFirstName() {
         return firstName;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public List<BowlingBooking> getBowlingBookings() {
         return bowlingBookings;
     }
 
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
     public void setBowlingBookings(List<BowlingBooking> bowlingBookings) {
         this.bowlingBookings = bowlingBookings;
     }
+
 }
