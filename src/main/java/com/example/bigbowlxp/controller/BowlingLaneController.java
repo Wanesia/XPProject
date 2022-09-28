@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="api/v1/bowling-lane")
+@CrossOrigin
 public class BowlingLaneController {
 
     private final BowlingLaneService bowlingLaneService;

@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/bowling-booking")
+@CrossOrigin
 public class BowlingBookingController {
 
     private final BowlingBookingService bowlingBookingService;
