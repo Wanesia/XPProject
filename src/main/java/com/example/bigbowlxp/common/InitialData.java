@@ -100,6 +100,8 @@ public class InitialData {
         bowlingLaneRepository.save(bowlingLane19);
         BowlingLane bowlingLane20 = new BowlingLane(false, true);
         bowlingLaneRepository.save(bowlingLane20);
+        BowlingLane bowlingLane21 = new BowlingLane(false, true);
+        bowlingLaneRepository.save(bowlingLane20);
         BowlingLane bowlingLane22 = new BowlingLane(false, true);
         bowlingLaneRepository.save(bowlingLane22);
         BowlingLane bowlingLane23= new BowlingLane(false, true);
@@ -187,6 +189,5 @@ public class InitialData {
 
         BowlingBooking bowlingBooking2 = new BowlingBooking(startDateTime2, endDateTime2, customer2, bowlingLane4);
         bowlingBookingRepository.save(bowlingBooking2);
-
     }
 }
