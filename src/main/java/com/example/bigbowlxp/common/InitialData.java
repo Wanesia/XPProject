@@ -101,7 +101,7 @@ public class InitialData {
         BowlingLane bowlingLane20 = new BowlingLane(false, true);
         bowlingLaneRepository.save(bowlingLane20);
         BowlingLane bowlingLane21 = new BowlingLane(false, true);
-        bowlingLaneRepository.save(bowlingLane20);
+        bowlingLaneRepository.save(bowlingLane21);
         BowlingLane bowlingLane22 = new BowlingLane(false, true);
         bowlingLaneRepository.save(bowlingLane22);
         BowlingLane bowlingLane23= new BowlingLane(false, true);
