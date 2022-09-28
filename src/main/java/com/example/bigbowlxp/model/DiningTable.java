@@ -1,5 +1,7 @@
 package com.example.bigbowlxp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,12 +16,21 @@ public class DiningTable {
 
     private boolean isBooked;
 
+    @OneToMany(mappedBy = "diningTable")
+    @JsonBackReference
+    private List<DiningBooking> diningBookings;
+
     // Constructors
     public DiningTable() {
     }
 
     public DiningTable(boolean isBooked) {
         this.isBooked = isBooked;
+    }
+
+    public DiningTable(boolean isBooked, List<DiningBooking> diningBookings) {
+        this.isBooked = isBooked;
+        this.diningBookings = diningBookings;
     }
 
     // Getters
@@ -29,6 +40,9 @@ public class DiningTable {
     public boolean isBooked() {
         return isBooked;
     }
+    public List<DiningBooking> getDiningBookings() {
+        return diningBookings;
+    }
 
     // Setters
     public void setId(Long id) {
@@ -37,5 +51,7 @@ public class DiningTable {
     public void setBooked(boolean booked) {
         isBooked = booked;
     }
-
+    public void setDiningBookings(List<DiningBooking> diningBookings) {
+        this.diningBookings = diningBookings;
+    }
 }

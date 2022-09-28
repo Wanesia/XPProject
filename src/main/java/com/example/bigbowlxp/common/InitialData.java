@@ -41,7 +41,7 @@ public class InitialData {
         Employee employee1 = new Employee("Zaland", "Malasy", "+4566666", date);
         employeeRepository.save(employee1);
 
-        User user1 = new User("user", "pass");
+        User user1 = new User("user", "pass", employee1);
         userRepository.save(user1);
 
         BowlingLane bowlingLane = new BowlingLane(false, true);

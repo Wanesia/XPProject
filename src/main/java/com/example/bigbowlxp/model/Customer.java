@@ -1,5 +1,7 @@
 package com.example.bigbowlxp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +23,10 @@ public class Customer {
     @Column(nullable = true, unique = false, length = 16)
     private String phoneNumber;
 
+    @OneToMany(mappedBy = "customer")
+    @JsonBackReference
+    private List<BowlingBooking> bowlingBookings;
+
     // Constructors
     public Customer(){}
 
@@ -28,6 +34,13 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Customer(String firstName, String lastName, String phoneNumber, List<BowlingBooking> bowlingBookings) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.bowlingBookings = bowlingBookings;
     }
 
     // Getters
@@ -43,6 +56,9 @@ public class Customer {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+    public List<BowlingBooking> getBowlingBookings() {
+        return bowlingBookings;
+    }
 
     // Setters
     public void setId(Long id) {
@@ -57,5 +73,7 @@ public class Customer {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
+    public void setBowlingBookings(List<BowlingBooking> bowlingBookings) {
+        this.bowlingBookings = bowlingBookings;
+    }
 }
