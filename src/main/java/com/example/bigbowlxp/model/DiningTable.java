@@ -28,11 +28,6 @@ public class DiningTable {
         this.isBooked = isBooked;
     }
 
-    public DiningTable(boolean isBooked, List<DiningBooking> diningBookings) {
-        this.isBooked = isBooked;
-        this.diningBookings = diningBookings;
-    }
-
     // Getters
     public Long getId() {
         return id;
