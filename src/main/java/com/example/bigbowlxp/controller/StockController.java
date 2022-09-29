@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="api/v1/stock")
+@CrossOrigin
 public class StockController {
 
     private final StockService stockService;

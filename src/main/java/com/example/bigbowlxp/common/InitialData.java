@@ -44,7 +44,7 @@ public class InitialData {
     @Autowired
     BowlingBookingRepository bowlingBookingRepository;
 
-    // @PostConstruct
+    //@PostConstruct
     public void initializeData() {
 
         Customer customer1 = new Customer("Laura", "Anne", "+455599959");
