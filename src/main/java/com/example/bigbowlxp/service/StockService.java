@@ -28,9 +28,9 @@ public class StockService {
     }
 
     @Transactional
-    public void updateStock(Long id,
-                            String name,
-                            Integer quantity) {
+    public Stock updateStock(Long id,
+                               String name,
+                               Integer quantity) {
         Stock stock = stockRepository.findById(id).
                 orElseThrow(() -> new IllegalStateException("Stock with ID " + id + " does not exist."));
         if (name != null
@@ -43,6 +43,8 @@ public class StockService {
                 && quantity >= 0) {
             stock.setQuantity(quantity);
         }
+        Stock updatedStock = stockRepository.save(stock);
+        return updatedStock;
     }
 
     public void deleteStock(Long id) {
