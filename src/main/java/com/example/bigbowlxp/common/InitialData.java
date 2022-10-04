@@ -109,14 +109,22 @@ public class InitialData {
         BowlingLane bowlingLane24 = new BowlingLane(false, true);
         bowlingLaneRepository.save(bowlingLane24);
 
-        Stock stock1 = new Stock("Bowling pin", 100);
+        Stock stock1 = new Stock("Bowling pin", 100, "Bowling");
         stockRepository.save(stock1);
-        Stock stock2 = new Stock("Bowling ball", 100);
+        Stock stock2 = new Stock("Bowling ball", 100, "Bowling");
         stockRepository.save(stock2);
-        Stock stock3 = new Stock("Socks", 200);
+        Stock stock3 = new Stock("Socks", 200, "Bowling");
         stockRepository.save(stock3);
-        Stock stock4 = new Stock("Shoes", 300);
+        Stock stock4 = new Stock("Shoes", 300, "Bowling");
         stockRepository.save(stock4);
+        Stock stock5 = new Stock("Striker", 40, "Hockey");
+        stockRepository.save(stock5);
+        Stock stock6 = new Stock("Puck", 100, "Hockey");
+        stockRepository.save(stock6);
+        Stock stock7 = new Stock("Plates", 200, "Dining");
+        stockRepository.save(stock7);
+        Stock stock8 = new Stock("Cutlery", 600, "Dining");
+        stockRepository.save(stock8);
 
         DiningTable diningTable1 = new DiningTable(false);
         diningTableRepository.save(diningTable1);

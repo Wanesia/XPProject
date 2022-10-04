@@ -17,13 +17,21 @@ public class Stock {
     @Column(columnDefinition = "INTEGER(10) NOT NULL")
     private Integer quantity;
 
+    @Column(columnDefinition = "VARCHAR(30) NOT NULL")
+    private String category;
+
     // Constructors
     public Stock() {
     }
 
-    public Stock(String name, Integer quantity) {
+
+
+
+
+    public Stock(String name, Integer quantity, String category) {
         this.name = name;
         this.quantity = quantity;
+        this.category = category;
     }
 
     // Getters
@@ -36,6 +44,7 @@ public class Stock {
     public Integer getQuantity() {
         return quantity;
     }
+    public String getCategory() {return category;}
 
     // Setters
     public void setId(Long id) {
@@ -47,5 +56,5 @@ public class Stock {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-
+    public void setCategory(String category) {this.category = category;}
 }
