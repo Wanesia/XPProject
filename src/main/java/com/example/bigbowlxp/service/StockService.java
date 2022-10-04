@@ -28,23 +28,22 @@ public class StockService {
     }
 
     @Transactional
-    public Stock updateStock(Long id,
-                               String name,
-                               Integer quantity) {
-        Stock stock = stockRepository.findById(id).
-                orElseThrow(() -> new IllegalStateException("Stock with ID " + id + " does not exist."));
-        if (name != null
-                && !Objects.equals(stock.getName(), name)
-                && name.length() > 0) {
-            stock.setName(name);
+    public void updateStock(Long id, Stock newStock) {
+        Stock stock = stockRepository.findById(id).orElseThrow(() -> new IllegalStateException("Stock with ID " + id + " does not exist."));
+        stock.setQuantity(newStock.getQuantity());
+        /*
+        if (stock.getName() != null
+                && !Objects.equals(stock.getName(), stock.getName())
+                && stock.getName().length() > 0) {
+            stock.setName(stock.getName());
         }
-        if (quantity != null
-                && !Objects.equals(stock.getQuantity(), quantity)
-                && quantity >= 0) {
-            stock.setQuantity(quantity);
+        if (stock.getQuantity() != null
+                && !Objects.equals(stock.getQuantity(), stock.getQuantity())
+                && stock.getQuantity() >= 0) {
+            stock.setQuantity(newStock.getQuantity());
+            System.out.println(newStock.getQuantity());
         }
-        Stock updatedStock = stockRepository.save(stock);
-        return updatedStock;
+        */
     }
 
     public void deleteStock(Long id) {

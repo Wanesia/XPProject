@@ -32,16 +32,12 @@ public class StockController {
         stockService.addStock(stock);
     }
 
-    //get the id of stock and pass in the url
-    @PutMapping(path = "{id}")
-    public Stock updateStock(
+    @PutMapping(path="{id}")
+    public void updateStock(
             @PathVariable("id") Long id,
-            @RequestParam(required = false)
-                    String name,
-            @RequestParam(required = false)
-                    Integer quantity) {
-        System.out.println("Id:" + id + name + quantity);
-       return stockService.updateStock(id, name, quantity);
+            @RequestBody Stock stock) {
+        System.out.println("jjj");
+        stockService.updateStock(id, stock);
     }
 
     @DeleteMapping(path = "{id}")
