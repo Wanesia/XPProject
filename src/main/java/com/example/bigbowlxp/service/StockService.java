@@ -26,6 +26,10 @@ public class StockService {
         return stockRepository.findAll();
     }
 
+    public List<Stock> getStocks(String category) {
+        return stockRepository.findAllByCategory(category);
+    }
+
     public void addStock(Stock stock) {
         stockRepository.save(stock);
     }
@@ -68,6 +72,7 @@ public class StockService {
         Stock updatedStock = stockRepository.save(stock);
         return updatedStock;
     }
+
 
     public void deleteStock(Long id) {
         boolean exists = stockRepository.existsById(id);

@@ -24,7 +24,12 @@ public class StockController {
     }
 
     @GetMapping
-    public List<Stock> getStocks() {
+    public List<Stock> getStocks(@RequestParam (required = false) String category) {
+        if (category != null && !category.isEmpty() && !category.equals("All")){
+            System.out.println("Category was called");
+            return stockService.getStocks(category);
+        }
+        System.out.println("Non category was called");
         return stockService.getStocks();
     }
 
@@ -52,6 +57,7 @@ public class StockController {
         System.out.println("Id:" + id + name + quantity);
         return stockService.updateStockOrder(id, name, quantity);
     }
+
 
 
     @DeleteMapping(path = "{id}")
