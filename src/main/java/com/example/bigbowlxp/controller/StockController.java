@@ -5,6 +5,7 @@ import com.example.bigbowlxp.model.Stock;
 import com.example.bigbowlxp.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -32,13 +33,26 @@ public class StockController {
         stockService.addStock(stock);
     }
 
-    @PutMapping(path="{id}")
+    @PutMapping(path = "{id}", consumes={MediaType.APPLICATION_JSON_VALUE})
     public void updateStock(
             @PathVariable("id") Long id,
             @RequestBody Stock stock) {
         System.out.println("jjj");
         stockService.updateStock(id, stock);
     }
+
+    //get the id of stock and pass in the url
+    @PutMapping(path = "{id}")
+    public Stock updateStockOrder(
+            @PathVariable("id") Long id,
+            @RequestParam(required = false)
+            String name,
+            @RequestParam(required = false)
+            Integer quantity) {
+        System.out.println("Id:" + id + name + quantity);
+        return stockService.updateStockOrder(id, name, quantity);
+    }
+
 
     @DeleteMapping(path = "{id}")
     public void deleteStock(@PathVariable("id") Long id) {
