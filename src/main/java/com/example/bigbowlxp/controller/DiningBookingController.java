@@ -51,6 +51,7 @@ public class DiningBookingController {
         if (foundCustomer == null){
             Customer newCustomer = new Customer(booking.getCustomer().getFirstName(), booking.getCustomer().getLastName(), booking.getCustomer().getPhoneNumber());
             customerService.addCustomer(newCustomer);
+            foundCustomer = newCustomer;
         }
 
         DiningBooking newBooking = new DiningBooking(booking.getStartDateTime(), booking.getEndDateTime(), foundCustomer, booking.getDiningTable());
