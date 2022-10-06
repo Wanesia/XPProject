@@ -6,6 +6,7 @@ import com.example.bigbowlxp.model.DiningTable;
 import com.example.bigbowlxp.service.CustomerService;
 import com.example.bigbowlxp.service.DiningBookingService;
 import com.example.bigbowlxp.service.DiningTableService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -62,18 +63,19 @@ public class DiningBookingController {
     }
 
     @PutMapping
-    public DiningBooking editDiningBooking(@RequestBody DiningBooking diningBooking){
-        List<DiningBooking> list = diningBookingService.getDiningBookings();
-        for (DiningBooking dining : list) {
-            if (dining.getId() == diningBooking.getId()){
-                dining.setCustomer(diningBooking.getCustomer());
+    public ResponseEntity<String> editDiningBooking(@RequestBody DiningBooking diningBooking) {
+        List<DiningBooking> bookingList = diningBookingService.getDiningBookings();
 
+        for (DiningBooking db : bookingList) {
+            if (db.getDiningTable().getId() == diningBooking.getDiningTable().getId() && diningBooking.getStartDateTime().isAfter(db.getStartDateTime()) && diningBooking.getStartDateTime().isBefore(db.getEndDateTime())) {
+                return new ResponseEntity<>("Cannot book at this time", HttpStatus.BAD_REQUEST);
             }
         }
 
-
-        return diningBooking;
+        diningBookingService.addDiningBooking(diningBooking);
+        return new ResponseEntity<>("Booking Saved", HttpStatus.OK);
     }
+
 
     @DeleteMapping
     public ResponseEntity<String> deleteDiningBooking(@RequestBody DiningBooking diningBooking) {
