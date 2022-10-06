@@ -24,4 +24,8 @@ public class DiningBookingService {
     public void addDiningBooking(DiningBooking diningBooking) {
         diningBookingRepository.save(diningBooking);
     }
+
+    public void deleteDiningBooking(DiningBooking diningBooking) {
+        diningBookingRepository.delete(diningBooking);
+    }
 }
