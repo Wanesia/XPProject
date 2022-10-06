@@ -39,8 +39,14 @@ public class HockeyBookingController {
             LocalDateTime startDateTime,
             @RequestParam(required = false)
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime endDateTime) {
-        hockeyBookingService.updateHockeyBooking(id, startDateTime, endDateTime);
+            LocalDateTime endDateTime,
+            @RequestParam(required = false)
+            String firstName,
+            @RequestParam(required = false)
+            String lastName,
+            @RequestParam(required = false)
+            String phoneNumber) {
+        hockeyBookingService.updateHockeyBooking(id, startDateTime, endDateTime, firstName, lastName, phoneNumber);
     }
 
     @DeleteMapping(path = "{id}")

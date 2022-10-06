@@ -30,8 +30,11 @@ public class HockeyBookingService {
 
     @Transactional
     public void updateHockeyBooking(Long id,
-                                     LocalDateTime startDateTime,
-                                     LocalDateTime endDateTime) {
+                                    LocalDateTime startDateTime,
+                                    LocalDateTime endDateTime,
+                                    String firstName,
+                                    String lastName,
+                                    String phoneNumber) {
         HockeyBooking hockeyBooking = hockeyBookingRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException("Hockey booking with ID " + id + " does not exist."));
         if (startDateTime != null
@@ -43,6 +46,15 @@ public class HockeyBookingService {
                 && !Objects.equals(hockeyBooking.getEndDateTime(), endDateTime)
                 && !endDateTime.isBefore(Objects.requireNonNull(startDateTime))) {
            hockeyBooking.setEndDateTime(endDateTime);
+        }
+        if (firstName != null) {
+            hockeyBooking.getCustomer().setFirstName(firstName);
+        }
+        if (lastName != null) {
+            hockeyBooking.getCustomer().setLastName(lastName);
+        }
+        if (phoneNumber != null) {
+            hockeyBooking.getCustomer().setPhoneNumber(phoneNumber);
         }
     }
 
