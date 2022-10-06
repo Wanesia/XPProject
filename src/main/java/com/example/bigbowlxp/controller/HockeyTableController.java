@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin
 @RestController
 @RequestMapping(path = "api/v1/hockey-table")
+@CrossOrigin
 public class HockeyTableController {
 
     private final HockeyTableService hockeyTableService;
