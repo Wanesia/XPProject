@@ -3,10 +3,7 @@ package com.example.bigbowlxp.controller;
 import com.example.bigbowlxp.model.HockeyTable;
 import com.example.bigbowlxp.service.HockeyTableService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,15 @@ public class HockeyTableController {
     @GetMapping
     public List<HockeyTable> getHockeyTables() {
         return hockeyTableService.getHockeyTables();
+    }
+
+    @PutMapping(path = "{id}")
+    public void updateHockeyBooking(
+            @PathVariable("id") Long id,
+            @RequestParam(required = false)
+            boolean booked,
+            @RequestParam(required = false)
+            boolean inOrder) {
+        hockeyTableService.updateHockeyTable(id, booked, inOrder);
     }
 }
