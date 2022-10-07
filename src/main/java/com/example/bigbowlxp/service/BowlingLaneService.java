@@ -1,6 +1,7 @@
 package com.example.bigbowlxp.service;
 
 import com.example.bigbowlxp.model.BowlingLane;
+import com.example.bigbowlxp.model.Stock;
 import com.example.bigbowlxp.repository.BowlingLaneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,9 @@ public class BowlingLaneService {
 
     public void addNewBowlingLane(BowlingLane bowlingLane) {
         bowlingLaneRepository.save(bowlingLane);
+    }
+    public void updateBowlingLane(Long id,BowlingLane updatedBowlingLane) {
+        BowlingLane bowlingLane = bowlingLaneRepository.findById(id).orElseThrow(() -> new IllegalStateException("Lane with ID " + id + " does not exist."));
+        bowlingLane.setInOrder(updatedBowlingLane.isInOrder());
     }
 }
