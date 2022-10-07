@@ -67,12 +67,11 @@ public class DiningBookingController {
         List<DiningBooking> bookingList = diningBookingService.getDiningBookings();
 
         for (DiningBooking db : bookingList) {
-            if (db.getDiningTable().getId() == diningBooking.getDiningTable().getId() && diningBooking.getStartDateTime().isAfter(db.getStartDateTime()) && diningBooking.getStartDateTime().isBefore(db.getEndDateTime())) {
+            if (!db.getId().equals(diningBooking.getId()) && db.getDiningTable().getId() == diningBooking.getDiningTable().getId() && diningBooking.getStartDateTime().isAfter(db.getStartDateTime()) && diningBooking.getStartDateTime().isBefore(db.getEndDateTime())) {
                 return new ResponseEntity<>("Cannot book at this time", HttpStatus.BAD_REQUEST);
             }
         }
-
-        diningBookingService.addDiningBooking(diningBooking);
+        diningBookingService.updateDiningBooking(diningBooking);
         return new ResponseEntity<>("Booking Saved", HttpStatus.OK);
     }
 

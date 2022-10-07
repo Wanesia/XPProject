@@ -28,7 +28,7 @@ public class DiningBooking {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime endDateTime;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
