@@ -1,5 +1,6 @@
 package com.example.bigbowlxp.controller;
 
+import com.example.bigbowlxp.model.BowlingBooking;
 import com.example.bigbowlxp.model.Customer;
 import com.example.bigbowlxp.model.DiningBooking;
 import com.example.bigbowlxp.model.DiningTable;
