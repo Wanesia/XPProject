@@ -28,32 +28,24 @@ public class BowlingBookingService {
 
     // Not final business logic, just an example
     public void addNewBowlingBooking(BowlingBooking bowlingBooking) {
-        Optional<BowlingBooking> bowlingBookingOptional = bowlingBookingRepository
-                .findBowlingBookingByBowlingLane_Booked(bowlingBooking.getBowlingLane().isBooked());
-        if (bowlingBookingOptional.isPresent()) {
-            throw new IllegalStateException("Bowling Lane not available");
-        }
+//        Optional<BowlingBooking> bowlingBookingOptional = bowlingBookingRepository
+//                .findBowlingBookingByBowlingLane_Booked(bowlingBooking.getBowlingLane().isBooked());
+//        if (bowlingBookingOptional.isPresent()) {
+//            throw new IllegalStateException("Bowling Lane not available");
+//        }
         bowlingBookingRepository.save(bowlingBooking);
     }
 
 
     // Not final business logic, just a messy example
     @Transactional
-    public void updateBowlingBooking(Long id,
-                                     LocalDateTime startDateTime,
-                                     LocalDateTime endDateTime) {
+    public void updateBowlingBooking(Long id, BowlingBooking updatedBowlingBooking) {
         BowlingBooking bowlingBooking = bowlingBookingRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException("Bowling booking with ID " + id + " does not exist."));
-        if (startDateTime != null
-                && !Objects.equals(bowlingBooking.getStartDateTime(), startDateTime)
-                && !startDateTime.isAfter(endDateTime)) {
-            bowlingBooking.setStartDateTime(startDateTime);
-        }
-        if (endDateTime != null
-                && !Objects.equals(bowlingBooking.getEndDateTime(), endDateTime)
-                && !endDateTime.isBefore(Objects.requireNonNull(startDateTime))) {
-            bowlingBooking.setEndDateTime(endDateTime);
-        }
+        bowlingBooking.setStartDateTime(updatedBowlingBooking.getStartDateTime());
+        bowlingBooking.setEndDateTime(updatedBowlingBooking.getEndDateTime());
+        bowlingBooking.setCustomer(updatedBowlingBooking.getCustomer());
+        bowlingBooking.setBowlingLane(updatedBowlingBooking.getBowlingLane());
     }
 
     public void deleteBowlingBooking(Long id) {

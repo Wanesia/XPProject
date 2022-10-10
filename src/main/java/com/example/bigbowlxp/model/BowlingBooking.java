@@ -22,7 +22,7 @@ public class BowlingBooking {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endDateTime;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)//this allows us to send a customer without id
     @JoinColumn(name = "customer_id")
     private Customer customer;
 

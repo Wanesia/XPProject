@@ -20,6 +20,9 @@ public class Stock {
     @Column(columnDefinition = "VARCHAR(30) NOT NULL")
     private String category;
 
+    @Column(columnDefinition = "INTEGER(10) NOT NULL")
+    private Integer price;
+
     // Constructors
     public Stock() {
     }
@@ -28,10 +31,19 @@ public class Stock {
 
 
 
-    public Stock(String name, Integer quantity, String category) {
+    public Stock(String name, Integer quantity, String category, Integer price) {
         this.name = name;
         this.quantity = quantity;
         this.category = category;
+        this.price = price;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     // Getters

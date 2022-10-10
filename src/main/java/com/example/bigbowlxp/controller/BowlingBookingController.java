@@ -34,13 +34,8 @@ public class BowlingBookingController {
     @PutMapping(path = "{id}")
     public void updateBowlingBooking(
             @PathVariable("id") Long id,
-            @RequestParam(required = false)
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime startDateTime,
-            @RequestParam(required = false)
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime endDateTime) {
-        bowlingBookingService.updateBowlingBooking(id, startDateTime, endDateTime);
+            @RequestBody BowlingBooking updatedBowlingBooking) {
+        bowlingBookingService.updateBowlingBooking(id,updatedBowlingBooking);
     }
 
     @DeleteMapping(path = "{id}")

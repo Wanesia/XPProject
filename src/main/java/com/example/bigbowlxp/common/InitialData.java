@@ -109,22 +109,26 @@ public class InitialData {
         BowlingLane bowlingLane24 = new BowlingLane(false, true);
         bowlingLaneRepository.save(bowlingLane24);
 
-        Stock stock1 = new Stock("Bowling pin", 100, "Bowling");
+        Stock stock1 = new Stock("Bowling pin", 100, "Bowling",0);
         stockRepository.save(stock1);
-        Stock stock2 = new Stock("Bowling ball", 100, "Bowling");
+        Stock stock2 = new Stock("Bowling ball", 100, "Bowling",0);
         stockRepository.save(stock2);
-        Stock stock3 = new Stock("Socks", 200, "Bowling");
+        Stock stock3 = new Stock("Socks", 200, "Bowling",0);
         stockRepository.save(stock3);
-        Stock stock4 = new Stock("Shoes", 300, "Bowling");
+        Stock stock4 = new Stock("Shoes", 300, "Bowling",0);
         stockRepository.save(stock4);
-        Stock stock5 = new Stock("Striker", 40, "Hockey");
+        Stock stock5 = new Stock("Striker", 40, "Hockey",0);
         stockRepository.save(stock5);
-        Stock stock6 = new Stock("Puck", 100, "Hockey");
+        Stock stock6 = new Stock("Puck", 100, "Hockey",0);
         stockRepository.save(stock6);
-        Stock stock7 = new Stock("Plates", 200, "Dining");
+        Stock stock7 = new Stock("Plates", 200, "Dining",0);
         stockRepository.save(stock7);
-        Stock stock8 = new Stock("Cutlery", 600, "Dining");
+        Stock stock8 = new Stock("Cutlery", 600, "Dining",0);
         stockRepository.save(stock8);
+        Stock stock9 = new Stock("Tuborg Classic", 100, "Beverage",20);
+        stockRepository.save(stock9);
+        Stock stock10 = new Stock("Coca-Cola", 100, "Beverage",20);
+        stockRepository.save(stock10);
 
         DiningTable diningTable1 = new DiningTable(false);
         diningTableRepository.save(diningTable1);
@@ -169,33 +173,33 @@ public class InitialData {
         hockeyTableRepository.save(hockeyTable6);
 
         LocalDateTime startDateTime1 = LocalDateTime.of(2022,
-                Month.OCTOBER, 29, 19, 30, 40);
+                Month.OCTOBER, 29, 19, 30, 00);
 
         LocalDateTime startDateTime2 = LocalDateTime.of(2022,
                 Month.OCTOBER, 30, 18, 00, 00);
 
         LocalDateTime endDateTime1 = LocalDateTime.of(2022,
-                Month.OCTOBER, 29, 20, 30, 40);
+                Month.OCTOBER, 29, 20, 30, 00);
 
         LocalDateTime endDateTime2 = LocalDateTime.of(2022,
                 Month.OCTOBER, 30, 19, 00, 00);
-
-        HockeyBooking hockeyBooking1 = new HockeyBooking(startDateTime1, endDateTime1, customer1, hockeyTable1);
-        hockeyBookingRepository.save(hockeyBooking1);
-
-        HockeyBooking hockeyBooking2 = new HockeyBooking(startDateTime2, endDateTime2, customer2, hockeyTable2);
-        hockeyBookingRepository.save(hockeyBooking2);
-
-        DiningBooking diningBooking1 = new DiningBooking(startDateTime1, endDateTime1, customer1, diningTable1);
-        diningBookingRepository.save(diningBooking1);
-
-        DiningBooking diningBooking2 = new DiningBooking(startDateTime2, endDateTime2, customer2, diningTable2);
-        diningBookingRepository.save(diningBooking2);
-
-        BowlingBooking bowlingBooking1 = new BowlingBooking(startDateTime1, endDateTime1, customer1, bowlingLane3);
-        bowlingBookingRepository.save(bowlingBooking1);
-
-        BowlingBooking bowlingBooking2 = new BowlingBooking(startDateTime2, endDateTime2, customer2, bowlingLane4);
-        bowlingBookingRepository.save(bowlingBooking2);
+//
+//        HockeyBooking hockeyBooking1 = new HockeyBooking(startDateTime1, endDateTime1, customer1, hockeyTable1);
+//        hockeyBookingRepository.save(hockeyBooking1);
+//
+////        HockeyBooking hockeyBooking2 = new HockeyBooking(startDateTime2, endDateTime2, customer2, hockeyTable2);
+////        hockeyBookingRepository.save(hockeyBooking2);
+//
+//        DiningBooking diningBooking1 = new DiningBooking(startDateTime1, endDateTime1, customer1, diningTable1);
+//        diningBookingRepository.save(diningBooking1);
+//
+//        DiningBooking diningBooking2 = new DiningBooking(startDateTime2, endDateTime2, customer2, diningTable2);
+//        diningBookingRepository.save(diningBooking2);
+//
+//        BowlingBooking bowlingBooking1 = new BowlingBooking(startDateTime1, endDateTime1, customer1, bowlingLane3);
+//        bowlingBookingRepository.save(bowlingBooking1);
+//
+//        BowlingBooking bowlingBooking2 = new BowlingBooking(startDateTime2, endDateTime2, customer2, bowlingLane4);
+//        bowlingBookingRepository.save(bowlingBooking2);
     }
 }
