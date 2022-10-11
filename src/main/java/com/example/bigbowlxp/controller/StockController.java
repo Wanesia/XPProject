@@ -52,6 +52,7 @@ public class StockController {
             @PathVariable("id") Long id,
             @RequestBody Stock stock) {
         stockService.updateBeverage(id, stock);
+
     }
 
     //get the id of stock and pass in the url

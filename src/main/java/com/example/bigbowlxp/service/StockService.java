@@ -42,7 +42,6 @@ public class StockService {
         stock.setPrice(newStock.getPrice());
         stock.setName(newStock.getName());
         stock.setQuantity(newStock.getQuantity());
-
     }
 
     @Transactional
@@ -80,8 +79,7 @@ public class StockService {
                 && quantity >= 0) {
             stock.setQuantity(quantity);
         }
-        Stock updatedStock = stockRepository.save(stock);
-        return updatedStock;
+        return stockRepository.save(stock);
     }
 
 
