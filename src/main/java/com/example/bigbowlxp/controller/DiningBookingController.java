@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -40,9 +41,10 @@ public class DiningBookingController {
     }
 
     @PostMapping
-    public DiningBooking postDiningBooking(@RequestBody DiningBooking booking) {
+    public ResponseEntity<String> postDiningBooking(@RequestBody DiningBooking booking) {
         List<Customer> list = customerService.getCustomers();
         Customer foundCustomer = null;
+        List<DiningBooking> bookingList = diningBookingService.getDiningBookings();
         for (Customer customer : list){
             if (customer.getPhoneNumber().equals(booking.getCustomer().getPhoneNumber())){
                 foundCustomer = customer;
@@ -55,12 +57,21 @@ public class DiningBookingController {
             customerService.addCustomer(newCustomer);
             foundCustomer = newCustomer;
         }
-
         DiningBooking newBooking = new DiningBooking(booking.getStartDateTime(), booking.getEndDateTime(), foundCustomer, booking.getDiningTable());
+        for(DiningBooking existingBooking:bookingList)
+        {
+            if(newBooking.getDiningTable().getId().equals(existingBooking.getDiningTable().getId()) && Duration.between(newBooking.getStartDateTime(), existingBooking.getStartDateTime()).toHours() < 1
+                    && newBooking.getStartDateTime().getMonthValue() == existingBooking.getStartDateTime().getMonthValue()
+                    && newBooking.getStartDateTime().getYear() == existingBooking.getStartDateTime().getYear()
+                    && newBooking.getStartDateTime().getDayOfWeek() == existingBooking.getStartDateTime().getDayOfWeek())
+            {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
 
         diningBookingService.addDiningBooking(newBooking);
 
-        return newBooking;
+        return new ResponseEntity<>("Ok", HttpStatus.OK);
     }
 
     @PutMapping
