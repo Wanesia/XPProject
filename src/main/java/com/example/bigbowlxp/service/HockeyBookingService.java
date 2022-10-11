@@ -65,4 +65,27 @@ public class HockeyBookingService {
         }
         hockeyBookingRepository.deleteById(id);
     }
+
+    public List<HockeyBooking> findBookingsByTableNumber(Long id){
+        return hockeyBookingRepository.findAllById(id);
+    }
+
+    public List<HockeyBooking> findBookingsByCustomerFirstName(String customerFirstName){
+        return hockeyBookingRepository.findAllByCustomerFirstName(customerFirstName);
+    }
+    public List<HockeyBooking> findBookingsByCustomerLastName(String customerLastName){
+        return hockeyBookingRepository.findAllByCustomerLastName(customerLastName);
+    }
+
+    public List<HockeyBooking> findBookingsByCustomerPhoneNumber(String phoneNumber){
+        return hockeyBookingRepository.findAllByCustomer_PhoneNumber(phoneNumber);
+    }
+
+   public List<HockeyBooking> findAllByStartDateTime(LocalDateTime startDateTime){
+        return hockeyBookingRepository.findAllByStartDateTime(startDateTime);
+   }
+    //fetch by end date
+   public List<HockeyBooking> findAllByEndDateTime(LocalDateTime endDateTime){
+        return findAllByEndDateTime(endDateTime);
+   }
 }

@@ -53,4 +53,11 @@ public class HockeyBookingController {
     public void deleteHockeyBooking(@PathVariable("id") Long id) {
         hockeyBookingService.deleteHockeyBooking(id);
     }
+
+    @GetMapping(path = "{id}")
+    public List<HockeyBooking> findCustomerByTableNumber(@PathVariable("id") Long id){
+        System.out.println(id);
+       return hockeyBookingService.findBookingsByTableNumber(id);
+
+    }
 }

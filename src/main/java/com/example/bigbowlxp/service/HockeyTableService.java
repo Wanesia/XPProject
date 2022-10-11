@@ -37,4 +37,5 @@ public class HockeyTableService {
             hockeyTable.setInOrder(inOrder);
         }
     }
+
 }
