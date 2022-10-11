@@ -38,12 +38,20 @@ public class StockController {
         stockService.addStock(stock);
     }
 
+
     @PutMapping(path = "{id}", consumes={MediaType.APPLICATION_JSON_VALUE})
     public void updateStock(
             @PathVariable("id") Long id,
             @RequestBody Stock stock) {
         System.out.println("jjj");
         stockService.updateStock(id, stock);
+    }
+
+    @PutMapping(path = "/beverageStock/{id}", consumes={MediaType.APPLICATION_JSON_VALUE})
+    public void updateAllStock(
+            @PathVariable("id") Long id,
+            @RequestBody Stock stock) {
+        stockService.updateBeverage(id, stock);
     }
 
     //get the id of stock and pass in the url

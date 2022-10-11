@@ -34,6 +34,17 @@ public class StockService {
         stockRepository.save(stock);
     }
 
+
+    @Transactional
+    public void updateBeverage(Long id, Stock newStock) {
+        Stock stock = stockRepository.findById(id).orElseThrow(() -> new IllegalStateException("Stock with ID " + id + " does not exist."));
+        System.out.println(newStock.getPrice());
+        stock.setPrice(newStock.getPrice());
+        stock.setName(newStock.getName());
+        stock.setQuantity(newStock.getQuantity());
+
+    }
+
     @Transactional
     public void updateStock(Long id, Stock newStock) {
         Stock stock = stockRepository.findById(id).orElseThrow(() -> new IllegalStateException("Stock with ID " + id + " does not exist."));
